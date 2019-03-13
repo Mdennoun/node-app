@@ -8,6 +8,15 @@
    
     <label>Ville : </label>
     <label>{{ villeName }}</label>
+    <br>
+    <label>Lattitude : </label>
+    <label>{{ lattValue }}</label>
+    <br>
+    <label>Longitude : </label>
+    <label>{{ longValue }}</label>
+    <br>
+        <iframe src="https://maps.google.com/maps?q={{ lattValue }},{{ longValue }}+&hl=es;z=14&amp;output=embed" width="600" height="450" frameborder="0" allowfullscreen></iframe>
+                
     
     
     
