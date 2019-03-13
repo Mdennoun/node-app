@@ -45,13 +45,11 @@ router.post('/ville', function(req, res, next) {
 			console.log(data);
 			var resultat = JSON.parse(data);
 			var msg = 'Ville introuvable';
-
-			if (resultat.matches !== null && nomVille !== '') {
 				msg = nomVille;
 				longt = resultat.longt;
 				latt = resultat.latt;
 				console.log(latt);
-			}
+			
 
 			res.render('ville', { villeName: nomVille, longValue: longt ,lattValue: latt});
 		});
@@ -59,7 +57,7 @@ router.post('/ville', function(req, res, next) {
 		}).on("error", (err) => {
 		console.log("Error: " + err.msg);
 		res.render('ville', { 
-			msg: 'Oups! Une erreur s\'est produite'
+			msg: 'Desolé il ya eu une erreur '
 		
 		});
 	});
