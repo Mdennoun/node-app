@@ -7,10 +7,11 @@
   <body>
     <h1>{{ title }}</h1>
     <p>{{ title }}</p>
-    <form action="/ville" method="GET">
-    	<label>{{ villeLabel }}</label>
-    	<input name="nom_ville">
+     <form action="/villePost" method="POST">
+      <h5>Ville :</h5>
+      <input name="nom_ville">
     </form>
+    <br>
     
   </body>
 </html>
