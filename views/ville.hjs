@@ -5,12 +5,17 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1>{{ title }}</h1>
-    <p>{{ title }}</p>
+    <h5>Changer ville : </h5>
     <form action="/ville" method="GET">
-    	<label>{{ villeLabel }}</label>
-    	<input name="nom_ville">
+      <h5>{{ villeLabel }}</h5>
+      <input name="nom_ville">
     </form>
+    <br>
+    <label>Ville : </label>
+    <label>{{ villeName }}</label>
+    
+    
+    
     
   </body>
 </html>
