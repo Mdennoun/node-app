@@ -14,66 +14,38 @@ router.get('/', function(req, res, next) {
 });
 
 
-
-
-
-
-
 router.post('/ville', function(req, res, next) {
-	console.log("rar");
-  
-	var nomVille = req.body.nom_ville;   
-	console.log("dqf" + nomVille);
-  
-	var urlHttps = 'https://geocode.xyz/' + nomVille + '?json=1&auth=129969521496761168735x1973';
+
+	var nom_ville = req.body.nom_ville;
+	var urlHttps = 'https://geocode.xyz/' + nom_ville + '?json=1&auth=129969521496761168735x1973';
  
 	console.log(urlHttps);
 	https.get(urlHttps, (resp) => {
-	
 
-	
 		let data = '';
 		resp.on('data', (d) => {
-			process.stdout.write(d);
-			console.log("je sui dans data");
 			data += d;
 		});
 		
 	
 		resp.on('end', () => {
-			console.log("je sui dans end");
 			console.log(data);
 			var resultat = JSON.parse(data);
-			var msg = 'Ville introuvable';
-				msg = nomVille;
-				longt = resultat.longt;
-				latt = resultat.latt;
-				console.log(latt);
-			
-
-			res.render('ville', { villeName: nomVille, longValue: longt ,lattValue: latt});
+			var msg = nom_ville;
+			longt = resultat.longt;
+			latt = resultat.latt;
+			res.render('ville', { villeName: nom_ville, longValue: longt ,lattValue: latt});
 		});
 
 		}).on("error", (err) => {
-		console.log("Error: " + err.msg);
-		res.render('ville', { 
+		
+			console.log("Error: " + err.msg);
+			res.render('ville', { 
 			msg: 'Desolé il ya eu une erreur '
 		
 		});
 	});
 
-});
-
-
-
-
-
-
-router.post('/villePost', function(req, res, next) {
-
-	var nomVille = req.body.nom_ville; 
-	res.render('ville', { villeName: nomVille});
-	console.log("Mon parametre est : " + nomVille);
 });
 
 module.exports = router;
